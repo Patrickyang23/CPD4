@@ -78,8 +78,8 @@
         
         <div class="collapsible-content open">
 
-            <div class="table-container">
-<table>
+            <div class="table-container" tabindex="0">
+<table tabindex="0">
 <tr><th>Place</th><th>Team</th><th>Score</th></tr>
 <tr><td>1</td><td>Holly</td><td> 79</td></tr>
 <tr><td>2</td><td>Canton</td><td> 133</td></tr>
@@ -129,7 +129,9 @@
             
             <div class="athlete-card" data-grade="10" data-name="nicholas yuan">
                 <figure class="athlete-figure"> 
-                    <img src="../images/profiles/21615273.jpg" width="200" alt="Profile picture of Nicholas Yuan"> 
+                    <a href = "../images/profiles/21615273.jpg" id="lightbox-image" target="_blank" data-lightbox="athletes" data-title="Skyline Athlete Images">
+                        <img src="../images/profiles/21615273.jpg" width="200" alt="Profile picture of Nicholas Yuan">
+                    </a>
                     <figcaption>Nicholas Yuan</figcaption>
                 </figure>
                 
@@ -144,7 +146,9 @@
             
             <div class="athlete-card" data-grade="12" data-name="jack robichaud">
                 <figure class="athlete-figure"> 
-                    <img src="../images/profiles/18820279.jpg" width="200" alt="Profile picture of Jack Robichaud"> 
+                    <a href = "../images/profiles/18820279.jpg" id="lightbox-image" target="_blank" data-lightbox="athletes" data-title="Skyline Athlete Images">
+                        <img src="../images/profiles/18820279.jpg" width="200" alt="Profile picture of Jack Robichaud">
+                    </a>
                     <figcaption>Jack Robichaud</figcaption>
                 </figure>
                 
@@ -159,7 +163,9 @@
             
             <div class="athlete-card" data-grade="10" data-name="enshu kuan">
                 <figure class="athlete-figure"> 
-                    <img src="../images/profiles/23687884.jpg" width="200" alt="Profile picture of Enshu Kuan"> 
+                    <a href = "../images/profiles/23687884.jpg" id="lightbox-image" target="_blank" data-lightbox="athletes" data-title="Skyline Athlete Images">
+                        <img src="../images/profiles/23687884.jpg" width="200" alt="Profile picture of Enshu Kuan">
+                    </a>
                     <figcaption>Enshu Kuan</figcaption>
                 </figure>
                 
@@ -174,7 +180,9 @@
             
             <div class="athlete-card" data-grade="11" data-name="bruno cifaldi">
                 <figure class="athlete-figure"> 
-                    <img src="../images/profiles/21147176.jpg" width="200" alt="Profile picture of Bruno Cifaldi"> 
+                    <a href = "../images/profiles/21147176.jpg" id="lightbox-image" target="_blank" data-lightbox="athletes" data-title="Skyline Athlete Images">
+                        <img src="../images/profiles/21147176.jpg" width="200" alt="Profile picture of Bruno Cifaldi">
+                    </a>
                     <figcaption>Bruno Cifaldi</figcaption>
                 </figure>
                 
@@ -189,7 +197,9 @@
             
             <div class="athlete-card" data-grade="11" data-name="kyle krasan">
                 <figure class="athlete-figure"> 
-                    <img src="../images/profiles/21245954.jpg" width="200" alt="Profile picture of Kyle Krasan"> 
+                    <a href = "../images/profiles/21245954.jpg" id="lightbox-image" target="_blank" data-lightbox="athletes" data-title="Skyline Athlete Images">
+                        <img src="../images/profiles/21245954.jpg" width="200" alt="Profile picture of Kyle Krasan">
+                    </a>
                     <figcaption>Kyle Krasan</figcaption>
                 </figure>
                 
@@ -204,7 +214,9 @@
             
             <div class="athlete-card" data-grade="11" data-name="zeke lafferty">
                 <figure class="athlete-figure"> 
-                    <img src="../images/profiles/21142917.jpg" width="200" alt="Profile picture of Zeke Lafferty"> 
+                    <a href = "../images/profiles/21142917.jpg" id="lightbox-image" target="_blank" data-lightbox="athletes" data-title="Skyline Athlete Images">
+                        <img src="../images/profiles/21142917.jpg" width="200" alt="Profile picture of Zeke Lafferty">
+                    </a>
                     <figcaption>Zeke Lafferty</figcaption>
                 </figure>
                 
@@ -219,7 +231,9 @@
             
             <div class="athlete-card" data-grade="11" data-name="gustaf finn">
                 <figure class="athlete-figure"> 
-                    <img src="../images/profiles/21147171.jpg" width="200" alt="Profile picture of Gustaf Finn"> 
+                    <a href = "../images/profiles/21147171.jpg" id="lightbox-image" target="_blank" data-lightbox="athletes" data-title="Skyline Athlete Images">
+                        <img src="../images/profiles/21147171.jpg" width="200" alt="Profile picture of Gustaf Finn">
+                    </a>
                     <figcaption>Gustaf Finn</figcaption>
                 </figure>
                 
@@ -291,8 +305,8 @@
                     <div class="gallery-slide">
             
                     <button class="arrow left-arrow" onclick="prevImage()">&#10094;</button> <!-- Left arrow -->
-                    <a href = "../images/meets/236072/09-14 Holly Invitational 15.jpg" id="lightbox-image" target="_blank" data-lightbox="athletes" data-title="Skyline Photo Gallery">
-                        <img id="gallery-image" src="../images/meets/236072/09-14 Holly Invitational 15.jpg" alt="Skyline Gallery Images">
+                    <a href = "../images/meets/236072/20240914_133639_014_01.jpg" id="lightbox-image" target="_blank" data-lightbox="athletes" data-title="Skyline Photo Gallery">
+                        <img id="gallery-image" src="../images/meets/236072/20240914_133639_014_01.jpg" alt="Skyline Gallery Images">
                     </a>
                     <button class="arrow right-arrow" onclick="nextImage()">&#10095;</button> <!-- Right arrow -->
             
@@ -306,7 +320,7 @@
         
             <script>
                 const meet_id = "236072";  // Pass meet_id as a JavaScript variable
-                const images = ['09-14 Holly Invitational 15.jpg', '20240914_133619_015_01.jpg', '20240914_125433.jpg', '20240914_133632_026_01.jpg', '09-14 Holly Invitational 07.jpg', 'IMG_9366_V2F_2024-09-14_13-34-18_867.jpg', '20240914_125252.jpg', '20240914_124642_008_01.jpg', '09-14 Holly Invitational 03.jpg', '09-14 Holly Invitational 04.jpg'];  // JavaScript array of images generated from Python
+                const images = ['20240914_133639_014_01.jpg', 'IMG_4181.jpg', 'IMG_4183.jpg', '20240914_133632_030_01.jpg', 'IMG_4176.jpg', 'IMG_9355.jpg', '20240914_133704_018_01.jpg', 'IMG_9369.jpg', '20240914_133606_024_01.jpg', '20240914_133718_010_01.jpg'];  // JavaScript array of images generated from Python
             </script>
             
     </main>   

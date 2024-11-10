@@ -202,3 +202,12 @@ body.lb-disable-scrolling {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
 }
+
+/* Example for specific components */
+@media (prefers-reduced-motion: reduce) {
+  * {
+      animation: none !important;
+      transition: none !important;
+      scroll-behavior: auto !important;
+  }
+}
