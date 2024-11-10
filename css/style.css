@@ -461,7 +461,7 @@ table th {
 .athlete-figure figcaption {
     font-weight: bold;
     margin-top: 10px;
-    color: #3498db;
+    color: rgba(30, 108, 147);
 }
 
 /* Athlete Info */
@@ -790,11 +790,19 @@ body.dark-mode {
     color: white;
 }
 
+.dark-mode {
+    background-color: #333;
+}
+
 .dark-mode .athlete-card {
     background-color: #333;
 }
 
 .dark-mode .athlete-info {
+    color: white;
+}
+
+.dark-mode .athlete-figure figcaption {
     color: white;
 }
 
@@ -886,11 +894,15 @@ body.dark-mode {
         color: white;
     }
 
-    .dark-mode .athlete-card {
+    .athlete-card {
         background-color: #333;
     }
     
-    .dark-mode .athlete-info {
+    .athlete-info {
+        color: white;
+    }
+    
+    .athlete-figure figcaption {
         color: white;
     }
 }
