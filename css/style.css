@@ -930,6 +930,7 @@ body.dark-mode {
     .hamburger {
         display: none;
     }
+    
     /* Show the full navigation menu */
     .nav-menu ul {
         display: flex;  /* Switch to horizontal nav layout */
