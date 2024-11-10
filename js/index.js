@@ -84,9 +84,11 @@ document.addEventListener('DOMContentLoaded', function() {
             if (isExpanded) {
                 toggleButton.textContent = `Show ${sectionName}`;
                 collapsibleContent.classList.remove('open');
+                console.log("Hide the section.")
             } else {
                 toggleButton.textContent = `Hide ${sectionName}`;
                 collapsibleContent.classList.add('open');
+                console.log("Show the section.")
             }
         });
     });
@@ -100,12 +102,14 @@ const lightBoxImage = document.getElementById("lightbox-image");
 function nextImage() {
     currentImageIndex = (currentImageIndex + 1) % images.length;
     showImage("right");
+    console.log("Show the next image.")
 }
 
 // Function to show the previous image
 function prevImage() {
     currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
     showImage("left");
+    console.log("Show the previous image.")
 }
 
 // Function to display the image with sliding animation
@@ -132,9 +136,9 @@ function showImage(direction) {
 // Select all images on the page
 document.querySelectorAll('img').forEach(img => {
     img.onerror = function() {
-    this.onerror = null; // Prevents infinite loop if default image missing
-    this.src = 'images/default_image.jpg';
-    this.alt = "Default images"
+        this.onerror = null; // Prevents infinite loop if default image missing
+        this.src = 'images/default_image.jpg';
+        this.alt = "Default images"
     };
 });
 

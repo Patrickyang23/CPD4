@@ -83,9 +83,11 @@ document.addEventListener('DOMContentLoaded', function() {
             if (isExpanded) {
                 toggleButton.textContent = `Show ${sectionName}`;
                 collapsibleContent.classList.remove('open');
+                console.log("Hide the section.")
             } else {
                 toggleButton.textContent = `Hide ${sectionName}`;
                 collapsibleContent.classList.add('open');
+                console.log("Show the section")
             }
         });
     });
@@ -99,12 +101,14 @@ const lightBoxImage = document.getElementById("lightbox-image");
 function nextImage() {
     currentImageIndex = (currentImageIndex + 1) % images.length;
     showImage("right");
+    console.log("Show the next image.")
 }
 
 // Function to show the previous image
 function prevImage() {
     currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
     showImage("left");
+    console.log("Show the previous image.")
 }
 
 // Function to display the image with sliding animation
@@ -144,16 +148,20 @@ const athleteCards = document.querySelectorAll('.athlete-card');
 // Show/Hide Filter Modal
 filterFab.addEventListener('click', function() {
     filterModal.classList.toggle('active');
+    console.log("Toggled filter modal. Active state:", filterModal.classList.contains('active'));
     if (searchModal.classList.contains('active')) {
         searchModal.classList.remove('active'); // Close search modal if open
+        console.log("Closed search modal as filter modal opened.");
     }
 });
 
 // Show/Hide Search Modal
 searchFab.addEventListener('click', function() {
     searchModal.classList.toggle('active');
+    console.log("Toggled search modal. Active state:", searchModal.classList.contains('active'));
     if (filterModal.classList.contains('active')) {
         filterModal.classList.remove('active'); // Close filter modal if open
+        console.log("Closed filter modal as search modal opened.");
     }
 });
 
@@ -161,23 +169,28 @@ searchFab.addEventListener('click', function() {
 window.addEventListener('click', function(event) {
     if (event.target === filterModal) {
         filterModal.classList.remove('active');
+        console.log("Closed filter modal by clicking outside.");
     }
     if (event.target === searchModal) {
         searchModal.classList.remove('active');
+        console.log("Closed search modal by clicking outside.");
     }
 });
 
 // Apply the filter
 applyFilterButton.addEventListener('click', function() {
     const selectedGrade = gradeFilter.value;
+    console.log("Applying filter for grade:", selectedGrade);
     filterModal.classList.remove('active');
 
     athleteCards.forEach(card => {
         const cardGrade = card.getAttribute('data-grade');
         if (selectedGrade === 'all' || cardGrade === selectedGrade) {
             card.style.display = 'flex';
+            // console.log(`Showing card with grade ${cardGrade}`);
         } else {
             card.style.display = 'none';
+            // console.log(`Hiding card with grade ${cardGrade}`);
         }
     });
 });
@@ -185,14 +198,17 @@ applyFilterButton.addEventListener('click', function() {
 // Apply the search
 applySearchButton.addEventListener('click', function() {
     const searchName = nameSearch.value.toLowerCase();
+    console.log("Applying search for name:", searchName);
     searchModal.classList.remove('active');
 
     athleteCards.forEach(card => {
         const cardName = card.getAttribute('data-name');
         if (cardName.includes(searchName)) {
             card.style.display = 'flex';
+            // console.log(`Showing card with name ${cardName}`);
         } else {
             card.style.display = 'none';
+            // console.log(`Hiding card with name ${cardName}`);
         }
     });
 });
@@ -201,9 +217,9 @@ applySearchButton.addEventListener('click', function() {
 // Select all images on the page
 document.querySelectorAll('img').forEach(img => {
     img.onerror = function() {
-    this.onerror = null; // Prevents infinite loop if default image missing
-    this.src = '../images/default_image.jpg';
-    this.alt = "Default images"
+        this.onerror = null; // Prevents infinite loop if default image missing
+        this.src = '../images/default_image.jpg';
+        this.alt = "Default images"
     };
 });
 
