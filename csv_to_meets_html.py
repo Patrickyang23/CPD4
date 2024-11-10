@@ -218,10 +218,6 @@ def csv_to_html(csv_filename, output_folder):
         </section>\n
         
         """
-        meet_id = extract_meet_id(link_url)
-        # Get the list of images from the folder
-        image_list = create_meet_image_gallery(link_url)
-
         html_content += """
         <section id = "gallery" tabindex="0">
             <div class="section-header">
@@ -232,47 +228,16 @@ def csv_to_html(csv_filename, output_folder):
             <div class="collapsible-content open">
                 <div class="gallery-container">
                     """
-        if isinstance(image_list, list) and image_list:  # Check if image_list is a non-empty list
-            html_content += """
-                    <div class="gallery-slide">
-            """
-            html_content += f"""
-                    <button class="arrow left-arrow" onclick="prevImage()">&#10094;</button> <!-- Left arrow -->
-                    <a href = "../images/meets/{meet_id}/{image_list[0]}" id="lightbox-image" target="_blank" data-lightbox="athletes" data-title="Skyline Photo Gallery">
-                        <img id="gallery-image" src="../images/meets/{meet_id}/{image_list[0]}" alt="Skyline Gallery Images">
-                    </a>
-                    <button class="arrow right-arrow" onclick="nextImage()">&#10095;</button> <!-- Right arrow -->
-            """
+        
+        html_content += create_meet_image_gallery(link_url)
             
-        else:  # If image_list is a message string
-            # Display a "Waiting for update" message if no images are found
-            html_content += """
-                <p>Wait for updating photo gallery for this meet.</p>
-            """
-
+    
+        # Close the HTML document
         html_content += """
                 </div>
             </div>
         </section>
-        """
-    
-        # Close the HTML document
-        html_content += """
-            </div>
-            </div>
-        </section>
-        """    
-
-        # Add any necessary JavaScript for the gallery only if images exist
-        if isinstance(image_list, list) and image_list:
-            # Convert Python list of images to a JavaScript array format
-            js_image_array = f"const images = {image_list};"
-            html_content += f"""
-            <script>
-                const meet_id = "{meet_id}";  // Pass meet_id as a JavaScript variable
-                {js_image_array}  // JavaScript array of images generated from Python
-            </script>
-            """
+        """  
         
     html_content += """
     </main>   
@@ -350,8 +315,8 @@ def extract_meet_id(url):
     else:
         raise ValueError("Meet ID not found in URL.")
 
-# Step 2: Select 10 random photos from the folder
-def select_random_photos(folder_path, num_photos=10):
+# Step 2: Select 15 random photos from the folder
+def select_random_photos(folder_path, num_photos=15):
      # List all image files in the folder
     print(f"Checking {folder_path}")
     all_files = os.listdir(folder_path)
@@ -359,20 +324,23 @@ def select_random_photos(folder_path, num_photos=10):
 
     # Ensure we have enough images to select
     if len(image_files) < num_photos:
-        return []
+        return ""
         raise ValueError(f"Not enough images in the folder. Found {len(image_files)} images.")
     
-    # Select 10 random images
+    # Select 15 random images
     return random.sample(image_files, num_photos)
 
 # Step 3: Generate HTML image tags
-def generate_image_tags(image_files):
+def generate_image_tags(image_files, folder_path):
     img_tags = []
     for img in image_files:
-        # Use html.escape to handle special characters, including spaces
-        img_path_escaped = html.escape(img)
-        img_tags.append(f'{img_path_escaped}')
-    return img_tags
+        img_path = os.path.join(folder_path, img)
+        img_tags.append(f'''
+                        <a href = "../{img_path}" id="lightbox-image" target="_blank" data-lightbox="athletes" data-title="Skyline Photo Gallery">
+                            <img src=../{img_path} width = "200" alt="Meet Photo Gallery">
+                        </a>
+                        ''')
+    return "\n".join(img_tags)
 
 # Putting it all together
 def create_meet_image_gallery(url):
@@ -390,9 +358,7 @@ def create_meet_image_gallery(url):
     selected_photos = select_random_photos(folder_path)
     
     # Generate image tags
-    html_image_tags = generate_image_tags(selected_photos)
-    
-    print("List of images:", html_image_tags)  # Print the sorted list of images
+    html_image_tags = generate_image_tags(selected_photos, folder_path)
     
     return html_image_tags
 

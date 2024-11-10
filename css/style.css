@@ -598,8 +598,13 @@ input, select {
     /* max-width: 600px; */
     overflow: hidden;
     display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
     justify-content: space-evenly;  /* Centers the image horizontally */
     align-items: center;     /* Centers the image vertically */
+    max-height: 45vh; 
+    overflow-y: auto;  /* Enable vertical scrolling if content exceeds the height */
+    overflow-x: auto;  /* Enable horizontal scrolling on smaller screens */
 }
 
 /* Slide area for images */
@@ -613,6 +618,13 @@ input, select {
     align-items: center;      /* Centers image vertically */
     overflow-y: auto;  /* Enable vertical scrolling if content exceeds the height */
     overflow-x: auto;  /* Enable horizontal scrolling on smaller screens */
+}
+
+.gallery-container img {
+    border-radius: 8px;
+    object-fit: cover;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease-in-out;  /* Smooth hover transition */
 }
 
 /* Image styling */
@@ -768,6 +780,7 @@ body.dark-mode {
 .dark-mode main {
     /* Keep the background image */
     background-image: url(../images/EAGLE-dark.png);
+    border-radius: 8px;
 }
 
 .dark-mode section {
