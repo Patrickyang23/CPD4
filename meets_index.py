@@ -94,8 +94,8 @@ def generate_homepage(csv_filename, folder_path, html_filename):
             </div>
             
             <div class="collapsible-content open">
-                <div class="table-container">
-                    <table>
+                <div class="table-container" tabindex="0">
+                    <table tabindex="0">
                         <tr>
                             <th>Date</th>
                             <th>Meet</th>
@@ -122,7 +122,7 @@ def generate_homepage(csv_filename, folder_path, html_filename):
             html_content += f"""
                     <tr>
                         <td>{date}</td>
-                        <td><a href="meets/{encode_filename(html_file)}">{meet_name}</a></td>
+                        <td><a href="meets/{encode_filename(html_file)}" tabindex="0">{meet_name}</a></td>
                         <td>{place}</td>
                         <td>{score}</td>
                     </tr>

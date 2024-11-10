@@ -110,10 +110,10 @@ def csv_to_html(csv_filename, output_folder):
         # Add a collapsible div container to enable scrolling
         html_content += """
         <div class="collapsible-content open">\n
-            <div class="table-container">\n"""
+            <div class="table-container" tabindex="0">\n"""
         
         # Process the remaining rows (after the first five)
-        html_content += """<table>\n"""
+        html_content += """<table tabindex="0">\n"""
         table_start = True
 
         for row in rows[4:]:
@@ -158,7 +158,9 @@ def csv_to_html(csv_filename, output_folder):
                 html_content += f"""
             <div class="athlete-card" data-grade="{grade}" data-name="{name.lower()}">
                 <figure class="athlete-figure"> 
-                    <img src="../images/profiles/{profile_pic}" width="200" alt="Profile picture of {name}"> 
+                    <a href = "../images/profiles/{profile_pic}" id="lightbox-image" target="_blank" data-lightbox="athletes" data-title="Skyline Athlete Images">
+                        <img src="../images/profiles/{profile_pic}" width="200" alt="Profile picture of {name}">
+                    </a>
                     <figcaption>{name}</figcaption>
                 </figure>
                 
