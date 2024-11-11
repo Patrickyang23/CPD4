@@ -337,7 +337,7 @@ def generate_image_tags(image_files, folder_path):
         img_path = os.path.join(folder_path, img)
         img_tags.append(f'''
                         <a href = "../{img_path}" id="lightbox-image" target="_blank" data-lightbox="athletes" data-title="Skyline Photo Gallery">
-                            <img src=../{img_path} width = "210" height="280" alt="Meet Photo Gallery">
+                            <img src=../{img_path} alt="Meet Photo Gallery">
                         </a>
                         ''')
     return "\n".join(img_tags)
